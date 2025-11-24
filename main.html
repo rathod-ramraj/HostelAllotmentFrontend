@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Allotment - NIT Jalandhar</title>
+    <link rel="icon" href="512px-Logo_of_NIT_Jalandhar.webp" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 0 30px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .institute-logo{
+            width:80px; 
+            height:80px; 
+            margin: 15px;
+        }
+
+        .institute-info h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .institute-info p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        .institute-info{
+            margin-left: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .user-profile:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .logout-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: white;
+            color: #1e3c72;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Header Section */
+        .header-banner {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .banner-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
+        }
+
+        .banner-content h2 {
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+
+        .banner-content p {
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        /* Instructions Card */
+        .instructions-card {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border-left: 5px solid #f39c12;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            animation: slideUp 0.6s ease 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .instructions-card h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+
+        .instructions-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .instructions-card li {
+            color: #856404;
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .instructions-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Application Form Card */
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.6s ease 0.4s both;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #e1e8ed;
+        }
+
+        .form-header h3 {
+            color: #1e3c72;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #e1e8ed;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1e3c72;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(30, 60, 114, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23666" d="M6 9L1 4h10z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 45px;
+        }
+
+        .help-text {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Hostel Preview Card */
+        .hostel-preview {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 25px;
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hostel-preview.show {
+            display: block;
+        }
+
+        .hostel-preview h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hostel-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-item strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .info-item span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Submit Button */
+        .submit-section {
+            margin-top: 35px;
+            text-align: center;
+            padding-top: 25px;
+            border-top: 2px solid #e1e8ed;
+        }
+
+        .submit-btn {
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(30, 60, 114, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Success Modal - FIXED */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 500px;
+            margin: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: scaleIn 0.4s ease;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 3rem;
+            animation: bounceIn 0.6s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .modal-content h3 {
+            color: #1e3c72;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .modal-btn {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(30, 60, 114, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .banner-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 10px;
+            }
+
+            .form-card {
+                padding: 25px 20px;
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .institute-info h1 {
+                font-size: 1rem;
+            }
+
+            .institute-info p {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid transparent;
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .spinner.show {
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-left">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="512px-Logo_of_NIT_Jalandhar.webp" alt="nitj-logo" class="institute-logo">
+                    </div>
+                    <div class="institute-info">
+                        <h1>NIT Jalandhar</h1>
+                        <p>Hostel Allotment Portal</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="active">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Help</a>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <div class="user-profile">
+                    <div class="user-avatar">S</div>
+                    <span>Student</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Banner -->
+        <div class="header-banner">
+            <div class="banner-icon">🏠</div>
+            <div class="banner-content">
+                <h2>Welcome to Hostel Allotment System</h2>
+                <p>Select your preferred hostel and complete your application. Make sure to review all information carefully before submitting your application.</p>
+            </div>
+        </div>
+
+        <!-- Instructions Card -->
+        <div class="instructions-card">
+            <h3>📋 Instructions Before Applying</h3>
+            <ul>
+                <li>Please choose your correct gender to get the appropriate hostel list</li>
+                <li>Double-check your email and personal details before submitting</li>
+                <li>Only one hostel preference can be selected at a time</li>
+                <li>Ensure your selected hostel matches your eligibility criteria</li>
+                <li>Keep your application number safe for future reference</li>
+            </ul>
+        </div>
+
+        <!-- Application Form -->
+        <div class="form-card">
+            <div class="form-header">
+                <h3>Hostel Allotment Application</h3>
+                <p>Fill in your details to apply for hostel accommodation</p>
+            </div>
+
+            <form id="hostelForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">
+                            Full Name <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Enter your full name"
+                            required
+                        >
+                        <span class="error-message" id="nameError">Please enter your name</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rollNumber">
+                            Roll Number <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="rollNumber" 
+                            name="rollNumber" 
+                            placeholder="e.g., 21101234"
+                            required
+                        >
+                        <span class="help-text">Enter your 8-digit roll number</span>
+                        <span class="error-message" id="rollError">Please enter a valid roll number</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            Email Address <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="your.email@nitj.ac.in"
+                            required
+                        >
+                        <span class="help-text">Use your institutional email</span>
+                        <span class="error-message" id="emailError">Please enter a valid email</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">
+                            Phone Number <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            placeholder="10-digit mobile number"
+                            required
+                        >
+                        <span class="error-message" id="phoneError">Please enter a valid phone number</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">
+                            Gender <span class="required">*</span>
+                        </label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <span class="error-message" id="genderError">Please select your gender</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">
+                            Academic Year <span class="required">*</span>
+                        </label>
+                        <select id="year" name="year" required>
+                            <option value="">Select Year</option>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                        </select>
+                        <span class="error-message" id="yearError">Please select your year</span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="branch">
+                            Branch/Department <span class="required">*</span>
+                        </label>
+                        <select id="branch" name="branch" required>
+                            <option value="">Select Branch</option>
+                            <option value="cse">Computer Science & Engineering</option>
+                            <option value="ece">Electronics & Communication Engineering</option>
+                            <option value="ee">Electrical Engineering</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="ce">Civil Engineering</option>
+                            <option value="it">Information Technology</option>
+                            <option value="che">Chemical Engineering</option>
+                            <option value="ice">Instrumentation & Control Engineering</option>
+                        </select>
+                        <span class="error-message" id="branchError">Please select your branch</span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="hostel">
+                            Preferred Hostel <span class="required">*</span>
+                        </label>
+                        <select id="hostel" name="hostel" required>
+                            <option value="">First select your gender</option>
+                        </select>
+                        <span class="help-text">Hostel list will appear after selecting gender</span>
+                        <span class="error-message" id="hostelError">Please select a hostel</span>
+                    </div>
+                </div>
+
+                <!-- Hostel Preview -->
+                <div class="hostel-preview" id="hostelPreview">
+                    <h4>🏢 Selected Hostel Details</h4>
+                    <div class="hostel-info">
+                        <div class="info-item">
+                            <strong>Hostel Name</strong>
+                            <span id="previewHostelName">-</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Type</strong>
+                            <span id="previewHostelType">-</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Capacity</strong>
+                            <span id="previewCapacity">-</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Available Rooms</strong>
+                            <span id="previewAvailable">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Section -->
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Submit Application
+                        <span class="spinner" id="spinner"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal - FIXED -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">✓</div>
+            <h3>Application Submitted!</h3>
+            <p>Your hostel allotment application has been successfully submitted. You will receive a confirmation email shortly.</p>
+            <p><strong>Application ID: <span id="applicationId"></span></strong></p>
+            <button class="modal-btn" onclick="viewApplication()">View Application Details</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Copyright 2025 © NIT Jalandhar</strong></p>
+        <p>Dr. B.R. Ambedkar National Institute of Technology, Jalandhar</p>
+    </div>
+
+    <script>
+        // API Configuration
+        const API_URL = 'https://hostelallotmentpage2-backend.onrender.com';
+
+        // Hostel data will be fetched from backend
+        let hostels = {
+            male: [],
+            female: []
+        };
+
+        // Store application data globally for redirection
+        let submittedApplicationData = null;
+
+        class HostelAllotmentSystem {
+            constructor() {
+                this.form = document.getElementById('hostelForm');
+                this.genderSelect = document.getElementById('gender');
+                this.hostelSelect = document.getElementById('hostel');
+                this.hostelPreview = document.getElementById('hostelPreview');
+                this.submitBtn = document.getElementById('submitBtn');
+                this.spinner = document.getElementById('spinner');
+                this.modal = document.getElementById('successModal');
+                
+                this.init();
+            }
+
+            async init() {
+                await this.fetchHostels();
+                this.initEventListeners();
+            }
+
+            async fetchHostels() {
+                try {
+                    const response = await fetch(`${API_URL}/hostels`);
+                    hostels = await response.json();
+                    console.log('Hostels loaded:', hostels);
+                } catch (error) {
+                    console.error('Error fetching hostels:', error);
+                    alert('Failed to load hostel data. Please make sure the backend is running.');
+                }
+            }
+
+            initEventListeners() {
+                this.form.addEventListener('submit', this.handleSubmit.bind(this));
+                this.genderSelect.addEventListener('change', this.updateHostelList.bind(this));
+                this.hostelSelect.addEventListener('change', this.showHostelPreview.bind(this));
+                
+                // Real-time validation
+                const inputs = this.form.querySelectorAll('input, select');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', () => this.validateField(input));
+                    input.addEventListener('input', () => this.clearError(input.id));
+                });
+            }
+
+            updateHostelList() {
+                const gender = this.genderSelect.value;
+                this.hostelSelect.innerHTML = '<option value="">Select Hostel</option>';
+                this.hostelPreview.classList.remove('show');
+
+                if (hostels[gender]) {
+                    hostels[gender].forEach((hostel, index) => {
+                        const option = document.createElement('option');
+                        option.value = index;
+                        option.textContent = `${hostel.name} (${hostel.available} rooms available)`;
+                        this.hostelSelect.appendChild(option);
+                    });
+                }
+            }
+
+            showHostelPreview() {
+                const gender = this.genderSelect.value;
+                const hostelIndex = this.hostelSelect.value;
+
+                if (gender && hostelIndex !== '') {
+                    const hostel = hostels[gender][hostelIndex];
+                    
+                    document.getElementById('previewHostelName').textContent = hostel.name;
+                    document.getElementById('previewHostelType').textContent = gender === 'male' ? 'Boys Hostel' : 'Girls Hostel';
+                    document.getElementById('previewCapacity').textContent = hostel.capacity + ' beds';
+                    document.getElementById('previewAvailable').textContent = hostel.available;
+                    
+                    this.hostelPreview.classList.add('show');
+                } else {
+                    this.hostelPreview.classList.remove('show');
+                }
+            }
+
+            validateField(field) {
+                const value = field.value.trim();
+                const fieldId = field.id;
+                let isValid = true;
+
+                switch(fieldId) {
+                    case 'name':
+                        isValid = value.length >= 3;
+                        if (!isValid) this.showError('name', 'Name must be at least 3 characters');
+                        break;
+                    
+                    case 'rollNumber':
+                        isValid = /^[0-9]{6,10}$/.test(value);
+                        if (!isValid) this.showError('rollNumber', 'Enter a valid roll number (6-10 digits)');
+                        break;
+                    
+                    case 'email':
+                        isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+                        if (!isValid) this.showError('email', 'Enter a valid email address');
+                        break;
+                    
+                    case 'phone':
+                        isValid = /^[0-9]{10}$/.test(value);
+                        if (!isValid) this.showError('phone', 'Enter a valid 10-digit phone number');
+                        break;
+                    
+                    case 'gender':
+                    case 'year':
+                    case 'branch':
+                    case 'hostel':
+                        isValid = value !== '';
+                        if (!isValid) this.showError(fieldId, 'This field is required');
+                        break;
+                }
+
+                return isValid;
+            }
+
+            showError(fieldId, message) {
+                const errorElement = document.getElementById(fieldId + 'Error');
+                const inputElement = document.getElementById(fieldId);
+                
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.classList.add('show');
+                }
+                if (inputElement) {
+                    inputElement.style.borderColor = '#e74c3c';
+                    inputElement.style.background = '#fff5f5';
+                }
+            }
+
+            clearError(fieldId) {
+                const errorElement = document.getElementById(fieldId + 'Error');
+                const inputElement = document.getElementById(fieldId);
+                
+                if (errorElement) {
+                    errorElement.classList.remove('show');
+                }
+                if (inputElement) {
+                    inputElement.style.borderColor = '#e1e8ed';
+                    inputElement.style.background = '#fafafa';
+                }
+            }
+
+            validateForm() {
+                const fields = ['name', 'rollNumber', 'email', 'phone', 'gender', 'year', 'branch', 'hostel'];
+                let isValid = true;
+
+                fields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (!this.validateField(field)) {
+                        isValid = false;
+                    }
+                });
+
+                return isValid;
+            }
+
+            async handleSubmit(e) {
+                e.preventDefault();
+
+                if (!this.validateForm()) {
+                    alert('Please fill all required fields correctly');
+                    return;
+                }
+
+                // Show loading
+                this.submitBtn.disabled = true;
+                this.spinner.classList.add('show');
+
+                try {
+                    const formData = new FormData(this.form);
+                    const gender = formData.get('gender');
+                    const hostelIndex = this.hostelSelect.value;
+                    const selectedHostel = hostels[gender][hostelIndex];
+                    
+                    const applicationData = {
+                        name: formData.get('name'),
+                        rollNumber: formData.get('rollNumber'),
+                        email: formData.get('email'),
+                        phone: formData.get('phone'),
+                        gender: gender,
+                        year: formData.get('year'),
+                        branch: formData.get('branch'),
+                        hostelIndex: hostelIndex,
+                        hostel: selectedHostel.name
+                    };
+
+                    // Submit to backend
+                    const response = await fetch(`${API_URL}/apply`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(applicationData)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        // Store complete application data for the details page
+                        submittedApplicationData = {
+                            ...applicationData,
+                            applicationId: result.applicationId,
+                            timestamp: new Date().toISOString()
+                        };
+                        
+                        // Store in sessionStorage for persistence
+                        sessionStorage.setItem('applicationData', JSON.stringify(submittedApplicationData));
+                        
+                        // Show application ID
+                        document.getElementById('applicationId').textContent = result.applicationId;
+                        
+                        // Show success modal - STAYS OPEN until user clicks button
+                        this.modal.classList.add('show');
+                        
+                        // Refresh hostels to update availability
+                        await this.fetchHostels();
+                        
+                        console.log('Application submitted:', result);
+                    } else {
+                        alert(result.message || 'Application submission failed. Please try again.');
+                    }
+                    
+                } catch (error) {
+                    console.error('Submission failed:', error);
+                    alert('Server error. Please make sure the backend is running on port 3000.');
+                } finally {
+                    this.submitBtn.disabled = false;
+                    this.spinner.classList.remove('show');
+                }
+            }
+        }
+
+        // Initialize the system
+        document.addEventListener('DOMContentLoaded', () => {
+            new HostelAllotmentSystem();
+        });
+
+        // View Application Details - redirects to details page
+        function viewApplication() {
+            window.location.href = 'application-details.html';
+        }
+
+        // Logout function
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                console.log('User logged out');
+                sessionStorage.clear();
+                localStorage.removeItem('userSession');
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+</html>
