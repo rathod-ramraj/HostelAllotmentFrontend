@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hostel Allotment - NIT Jalandhar</title>
     <link rel="icon" href="512px-Logo_of_NIT_Jalandhar.webp" type="image/png">
+    <title>Login - NIT Jalandhar Hostel Allotment</title>
     <style>
         * {
             margin: 0;
@@ -14,210 +14,46 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Navigation Bar */
-        .navbar {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 0 30px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            position: sticky;
+        body::before {
+            content: '';
+            position: absolute;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 0L100 100M100 0L0 100" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
         }
 
-        .navbar-content {
-            max-width: 1400px;
-            margin: 0 auto;
+        .login-wrapper {
+            width: 100%;
+            max-width: 1000px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .navbar-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .institute-logo{
-            width:80px; 
-            height:80px; 
-            margin: 15px;
-        }
-
-        .institute-info h1 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-
-        .institute-info p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-        .institute-info{
-            margin-left: 15px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .navbar-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
             border-radius: 25px;
-            transition: background 0.3s ease;
-        }
-
-        .user-profile:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #1e3c72;
-        }
-
-        .logout-btn {
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            color: white;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .logout-btn:hover {
-            background: white;
-            color: #1e3c72;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
-
-        /* Header Section */
-        .header-banner {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            animation: slideDown 0.6s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .banner-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
-        }
-
-        .banner-content h2 {
-            font-size: 2rem;
-            color: #1e3c72;
-            margin-bottom: 8px;
-        }
-
-        .banner-content p {
-            color: #666;
-            font-size: 1.05rem;
-            line-height: 1.5;
-        }
-
-        /* Instructions Card */
-        .instructions-card {
-            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-            border-left: 5px solid #f39c12;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            animation: slideUp 0.6s ease 0.2s both;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.6s ease-out;
         }
 
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -225,98 +61,189 @@
             }
         }
 
-        .instructions-card h3 {
-            color: #856404;
-            margin-bottom: 15px;
+        .login-left {
+            flex: 1;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            padding: 50px 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-left::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+
+        .institute-logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.3rem;
-        }
-
-        .instructions-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .instructions-card li {
-            color: #856404;
-            padding: 10px 0;
-            padding-left: 30px;
+            justify-content: center;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             position: relative;
-            line-height: 1.6;
+            z-index: 1;
         }
 
-        .instructions-card li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #f39c12;
-            font-weight: bold;
-            font-size: 1.2rem;
+        .institute-logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
         }
 
-        /* Application Form Card */
-        .form-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            animation: slideUp 0.6s ease 0.4s both;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 35px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #e1e8ed;
-        }
-
-        .form-header h3 {
-            color: #1e3c72;
+        .login-left h1 {
             font-size: 1.8rem;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
         }
 
-        .form-header p {
+        .login-left h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-left p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 350px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features {
+            margin-top: 30px;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .feature-icon {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .login-right {
+            flex: 1;
+            padding: 50px 45px;
+            background: white;
+        }
+
+        .login-header {
+            margin-bottom: 35px;
+        }
+
+        .login-header h3 {
+            color: #1e3c72;
+            font-size: 2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .login-header p {
             color: #666;
             font-size: 1rem;
         }
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 25px;
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e1e8ed;
+        }
+
+        .tab {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab.active {
+            color: #1e3c72;
+            border-bottom-color: #1e3c72;
+        }
+
+        .tab:hover {
+            color: #1e3c72;
         }
 
         .form-group {
+            margin-bottom: 25px;
             position: relative;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #333;
             font-weight: 600;
             font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .required {
-            color: #e74c3c;
+        .input-wrapper {
+            position: relative;
         }
 
-        .form-group input,
-        .form-group select {
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            pointer-events: none;
+        }
+
+        .form-group input {
             width: 100%;
-            padding: 15px 18px;
+            padding: 15px 15px 15px 45px;
             border: 2px solid #e1e8ed;
             border-radius: 12px;
             font-size: 1rem;
@@ -324,29 +251,11 @@
             background: #fafafa;
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
+        .form-group input:focus {
             outline: none;
             border-color: #1e3c72;
             background: white;
             box-shadow: 0 0 0 4px rgba(30, 60, 114, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .form-group select {
-            cursor: pointer;
-            appearance: none;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23666" d="M6 9L1 4h10z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 15px center;
-            padding-right: 45px;
-        }
-
-        .help-text {
-            font-size: 0.85rem;
-            color: #999;
-            margin-top: 6px;
-            font-style: italic;
         }
 
         .error-message {
@@ -354,91 +263,70 @@
             font-size: 0.85rem;
             margin-top: 6px;
             display: none;
+            animation: shake 0.3s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
         }
 
         .error-message.show {
             display: block;
         }
 
-        /* Hostel Preview Card */
-        .hostel-preview {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 25px;
-            display: none;
-            animation: fadeIn 0.4s ease;
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .hostel-preview.show {
-            display: block;
-        }
-
-        .hostel-preview h4 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+        .remember-me {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            color: #666;
         }
 
-        .hostel-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
         }
 
-        .info-item {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-
-        .info-item strong {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .info-item span {
-            font-size: 1.1rem;
+        .forgot-password {
+            color: #1e3c72;
+            text-decoration: none;
             font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        /* Submit Button */
-        .submit-section {
-            margin-top: 35px;
-            text-align: center;
-            padding-top: 25px;
-            border-top: 2px solid #e1e8ed;
+        .forgot-password:hover {
+            color: #2a5298;
+            text-decoration: underline;
         }
 
-        .submit-btn {
-            padding: 18px 50px;
+        .login-btn {
+            width: 100%;
+            padding: 16px;
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
             border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            border-radius: 12px;
+            font-size: 1.05rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             position: relative;
             overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .submit-btn::before {
+        .login-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -449,692 +337,505 @@
             transition: left 0.5s ease;
         }
 
-        .submit-btn:hover::before {
+        .login-btn:hover::before {
             left: 100%;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(30, 60, 114, 0.4);
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(30, 60, 114, 0.4);
         }
 
-        .submit-btn:active {
+        .login-btn:active {
             transform: translateY(0);
         }
 
-        .submit-btn:disabled {
-            opacity: 0.6;
+        .login-btn:disabled {
             cursor: not-allowed;
+            opacity: 0.7;
         }
 
-        /* Success Modal - FIXED */
-        .modal {
+        .loading-spinner {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal.show {
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 50px;
-            border-radius: 25px;
-            text-align: center;
-            max-width: 500px;
-            margin: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: scaleIn 0.4s ease;
-        }
-
-        @keyframes scaleIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .success-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #28a745, #20c997);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 3rem;
-            animation: bounceIn 0.6s ease;
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        .modal-content h3 {
-            color: #1e3c72;
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .modal-content p {
-            color: #666;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .modal-btn {
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .modal-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(30, 60, 114, 0.4);
-        }
-
-        /* Footer */
-        .footer {
-            background: #1e3c72;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            border-radius: 20px 20px 0 0;
-        }
-
-        .footer p {
-            margin-bottom: 5px;
-            opacity: 0.9;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 968px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .navbar-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .header-banner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .banner-content h2 {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px 10px;
-            }
-
-            .form-card {
-                padding: 25px 20px;
-            }
-
-            .submit-btn {
-                width: 100%;
-                padding: 15px;
-            }
-
-            .institute-info h1 {
-                font-size: 1rem;
-            }
-
-            .institute-info p {
-                font-size: 0.75rem;
-            }
-        }
-
-        /* Loading Spinner */
-        .spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
             border: 3px solid transparent;
             border-top: 3px solid white;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        .spinner.show {
-            display: inline-block;
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e1e8ed;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            color: #999;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .signup-link a {
+            color: #1e3c72;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .signup-link a:hover {
+            color: #2a5298;
+            text-decoration: underline;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+            font-weight: 600;
+            border-left: 4px solid #28a745;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .help-text {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .login-wrapper {
+                flex-direction: column;
+                max-width: 450px;
+            }
+            
+            .login-left {
+                padding: 40px 30px;
+            }
+
+            .login-left h1 {
+                font-size: 1.5rem;
+            }
+
+            .login-left h2 {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                margin-top: 20px;
+            }
+
+            .login-right {
+                padding: 40px 30px;
+            }
+
+            .login-header h3 {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .login-right {
+                padding: 30px 20px;
+            }
+
+            .tabs {
+                gap: 5px;
+            }
+
+            .tab {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-content">
-            <div class="navbar-left">
-                <div class="logo-section">
-                    <div class="logo">
-                        <img src="512px-Logo_of_NIT_Jalandhar.webp" alt="nitj-logo" class="institute-logo">
-                    </div>
-                    <div class="institute-info">
-                        <h1>NIT Jalandhar</h1>
-                        <p>Hostel Allotment Portal</p>
-                    </div>
-                </div>
-                <div class="nav-links">
-                    <a href="#" class="active">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Help</a>
-                </div>
+    <div class="login-wrapper">
+        <div class="login-left">
+            <div class="institute-logo">
+                <img src="512px-Logo_of_NIT_Jalandhar.webp" alt="nitj-logo">
             </div>
-            <div class="navbar-right">
-                <div class="user-profile">
-                    <div class="user-avatar">S</div>
-                    <span>Student</span>
+            <h1>NIT Jalandhar</h1>
+            <h2>Hostel Allotment System</h2>
+            <p>Streamlined hostel allocation process for students of National Institute of Technology, Jalandhar</p>
+            
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon">🏠</div>
+                    <span>Easy Hostel Selection</span>
                 </div>
-                <button class="logout-btn" onclick="logout()">Logout</button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Header Banner -->
-        <div class="header-banner">
-            <div class="banner-icon">🏠</div>
-            <div class="banner-content">
-                <h2>Welcome to Hostel Allotment System</h2>
-                <p>Select your preferred hostel and complete your application. Make sure to review all information carefully before submitting your application.</p>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <span>Quick Application Process</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <span>Secure & Reliable</span>
+                </div>
             </div>
         </div>
 
-        <!-- Instructions Card -->
-        <div class="instructions-card">
-            <h3>📋 Instructions Before Applying</h3>
-            <ul>
-                <li>Please choose your correct gender to get the appropriate hostel list</li>
-                <li>Double-check your email and personal details before submitting</li>
-                <li>Only one hostel preference can be selected at a time</li>
-                <li>Ensure your selected hostel matches your eligibility criteria</li>
-                <li>Keep your application number safe for future reference</li>
-            </ul>
-        </div>
-
-        <!-- Application Form -->
-        <div class="form-card">
-            <div class="form-header">
-                <h3>Hostel Allotment Application</h3>
-                <p>Fill in your details to apply for hostel accommodation</p>
+        <div class="login-right">
+            <div class="login-header">
+                <h3>Welcome Back</h3>
+                <p>Sign in to continue your hostel application</p>
             </div>
 
-            <form id="hostelForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="name">
-                            Full Name <span class="required">*</span>
-                        </label>
+            <div class="tabs">
+                <button class="tab active" data-tab="student">Student Login</button>
+                <button class="tab" data-tab="admin">Admin Login</button>
+            </div>
+
+            <div id="successMessage" class="success-message">
+                ✓ Login successful! Redirecting to dashboard...
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email / Roll Number</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
                         <input 
                             type="text" 
-                            id="name" 
-                            name="name" 
-                            placeholder="Enter your full name"
-                            required
-                        >
-                        <span class="error-message" id="nameError">Please enter your name</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="rollNumber">
-                            Roll Number <span class="required">*</span>
-                        </label>
-                        <input 
-                            type="text" 
-                            id="rollNumber" 
-                            name="rollNumber" 
-                            placeholder="e.g., 21101234"
-                            required
-                        >
-                        <span class="help-text">Enter your 8-digit roll number</span>
-                        <span class="error-message" id="rollError">Please enter a valid roll number</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">
-                            Email Address <span class="required">*</span>
-                        </label>
-                        <input 
-                            type="email" 
                             id="email" 
                             name="email" 
-                            placeholder="your.email@nitj.ac.in"
+                            placeholder="Enter your email or roll number"
                             required
                         >
-                        <span class="help-text">Use your institutional email</span>
-                        <span class="error-message" id="emailError">Please enter a valid email</span>
                     </div>
+                    <div class="error-message" id="emailError">Please enter a valid email or roll number</div>
+                    <p class="help-text">Use your institutional email or roll number</p>
+                </div>
 
-                    <div class="form-group">
-                        <label for="phone">
-                            Phone Number <span class="required">*</span>
-                        </label>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
                         <input 
-                            type="tel" 
-                            id="phone" 
-                            name="phone" 
-                            placeholder="10-digit mobile number"
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter your password"
                             required
                         >
-                        <span class="error-message" id="phoneError">Please enter a valid phone number</span>
                     </div>
-
-                    <div class="form-group">
-                        <label for="gender">
-                            Gender <span class="required">*</span>
-                        </label>
-                        <select id="gender" name="gender" required>
-                            <option value="">Select Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                        <span class="error-message" id="genderError">Please select your gender</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="year">
-                            Academic Year <span class="required">*</span>
-                        </label>
-                        <select id="year" name="year" required>
-                            <option value="">Select Year</option>
-                            <option value="1">1st Year</option>
-                            <option value="2">2nd Year</option>
-                            <option value="3">3rd Year</option>
-                            <option value="4">4th Year</option>
-                        </select>
-                        <span class="error-message" id="yearError">Please select your year</span>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="branch">
-                            Branch/Department <span class="required">*</span>
-                        </label>
-                        <select id="branch" name="branch" required>
-                            <option value="">Select Branch</option>
-                            <option value="cse">Computer Science & Engineering</option>
-                            <option value="ece">Electronics & Communication Engineering</option>
-                            <option value="ee">Electrical Engineering</option>
-                            <option value="me">Mechanical Engineering</option>
-                            <option value="ce">Civil Engineering</option>
-                            <option value="it">Information Technology</option>
-                            <option value="che">Chemical Engineering</option>
-                            <option value="ice">Instrumentation & Control Engineering</option>
-                        </select>
-                        <span class="error-message" id="branchError">Please select your branch</span>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="hostel">
-                            Preferred Hostel <span class="required">*</span>
-                        </label>
-                        <select id="hostel" name="hostel" required>
-                            <option value="">First select your gender</option>
-                        </select>
-                        <span class="help-text">Hostel list will appear after selecting gender</span>
-                        <span class="error-message" id="hostelError">Please select a hostel</span>
-                    </div>
+                    <div class="error-message" id="passwordError">Password must be at least 6 characters long</div>
                 </div>
 
-                <!-- Hostel Preview -->
-                <div class="hostel-preview" id="hostelPreview">
-                    <h4>🏢 Selected Hostel Details</h4>
-                    <div class="hostel-info">
-                        <div class="info-item">
-                            <strong>Hostel Name</strong>
-                            <span id="previewHostelName">-</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Type</strong>
-                            <span id="previewHostelType">-</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Capacity</strong>
-                            <span id="previewCapacity">-</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Available Rooms</strong>
-                            <span id="previewAvailable">-</span>
-                        </div>
-                    </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
                 </div>
 
-                <!-- Submit Section -->
-                <div class="submit-section">
-                    <button type="submit" class="submit-btn" id="submitBtn">
-                        Submit Application
-                        <span class="spinner" id="spinner"></span>
-                    </button>
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span id="btnText">Sign In</span>
+                    <div class="loading-spinner" id="loadingSpinner"></div>
+                </button>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <div class="signup-link">
+                    Don't have an account? <a href="#" id="registerLink">Register here</a>
                 </div>
             </form>
         </div>
-    </div>
-
-    <!-- Success Modal - FIXED -->
-    <div class="modal" id="successModal">
-        <div class="modal-content">
-            <div class="success-icon">✓</div>
-            <h3>Application Submitted!</h3>
-            <p>Your hostel allotment application has been successfully submitted. You will receive a confirmation email shortly.</p>
-            <p><strong>Application ID: <span id="applicationId"></span></strong></p>
-            <button class="modal-btn" onclick="viewApplication()">View Application Details</button>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <p><strong>Copyright 2025 © NIT Jalandhar</strong></p>
-        <p>Dr. B.R. Ambedkar National Institute of Technology, Jalandhar</p>
     </div>
 
     <script>
         // API Configuration
         const API_URL = 'https://hostelallotmentpage2-backend.onrender.com';
 
-        // Hostel data will be fetched from backend
-        let hostels = {
-            male: [],
-            female: []
-        };
-
-        // Store application data globally for redirection
-        let submittedApplicationData = null;
-
-        class HostelAllotmentSystem {
+        class LoginSystem {
             constructor() {
-                this.form = document.getElementById('hostelForm');
-                this.genderSelect = document.getElementById('gender');
-                this.hostelSelect = document.getElementById('hostel');
-                this.hostelPreview = document.getElementById('hostelPreview');
-                this.submitBtn = document.getElementById('submitBtn');
-                this.spinner = document.getElementById('spinner');
-                this.modal = document.getElementById('successModal');
+                this.form = document.getElementById('loginForm');
+                this.emailInput = document.getElementById('email');
+                this.passwordInput = document.getElementById('password');
+                this.loginBtn = document.getElementById('loginBtn');
+                this.btnText = document.getElementById('btnText');
+                this.loadingSpinner = document.getElementById('loadingSpinner');
+                this.successMessage = document.getElementById('successMessage');
+                this.tabs = document.querySelectorAll('.tab');
+                this.currentUserType = 'student';
                 
-                this.init();
-            }
-
-            async init() {
-                await this.fetchHostels();
                 this.initEventListeners();
-            }
-
-            async fetchHostels() {
-                try {
-                    const response = await fetch(`${API_URL}/hostels`);
-                    hostels = await response.json();
-                    console.log('Hostels loaded:', hostels);
-                } catch (error) {
-                    console.error('Error fetching hostels:', error);
-                    alert('Failed to load hostel data. Please make sure the backend is running.');
-                }
             }
 
             initEventListeners() {
                 this.form.addEventListener('submit', this.handleSubmit.bind(this));
-                this.genderSelect.addEventListener('change', this.updateHostelList.bind(this));
-                this.hostelSelect.addEventListener('change', this.showHostelPreview.bind(this));
+                this.emailInput.addEventListener('input', () => this.clearError('email'));
+                this.passwordInput.addEventListener('input', () => this.clearError('password'));
                 
-                // Real-time validation
-                const inputs = this.form.querySelectorAll('input, select');
-                inputs.forEach(input => {
-                    input.addEventListener('blur', () => this.validateField(input));
-                    input.addEventListener('input', () => this.clearError(input.id));
+                // Tab switching
+                this.tabs.forEach(tab => {
+                    tab.addEventListener('click', (e) => this.switchTab(e.target));
                 });
-            }
 
-            updateHostelList() {
-                const gender = this.genderSelect.value;
-                this.hostelSelect.innerHTML = '<option value="">Select Hostel</option>';
-                this.hostelPreview.classList.remove('show');
+                // Register link
+                document.getElementById('registerLink').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.redirectToRegistration();
+                });
 
-                if (hostels[gender]) {
-                    hostels[gender].forEach((hostel, index) => {
-                        const option = document.createElement('option');
-                        option.value = index;
-                        option.textContent = `${hostel.name} (${hostel.available} rooms available)`;
-                        this.hostelSelect.appendChild(option);
+                // Input animations
+                [this.emailInput, this.passwordInput].forEach(input => {
+                    input.addEventListener('focus', () => {
+                        input.parentElement.parentElement.style.transform = 'translateY(-2px)';
                     });
-                }
-            }
-
-            showHostelPreview() {
-                const gender = this.genderSelect.value;
-                const hostelIndex = this.hostelSelect.value;
-
-                if (gender && hostelIndex !== '') {
-                    const hostel = hostels[gender][hostelIndex];
-                    
-                    document.getElementById('previewHostelName').textContent = hostel.name;
-                    document.getElementById('previewHostelType').textContent = gender === 'male' ? 'Boys Hostel' : 'Girls Hostel';
-                    document.getElementById('previewCapacity').textContent = hostel.capacity + ' beds';
-                    document.getElementById('previewAvailable').textContent = hostel.available;
-                    
-                    this.hostelPreview.classList.add('show');
-                } else {
-                    this.hostelPreview.classList.remove('show');
-                }
-            }
-
-            validateField(field) {
-                const value = field.value.trim();
-                const fieldId = field.id;
-                let isValid = true;
-
-                switch(fieldId) {
-                    case 'name':
-                        isValid = value.length >= 3;
-                        if (!isValid) this.showError('name', 'Name must be at least 3 characters');
-                        break;
-                    
-                    case 'rollNumber':
-                        isValid = /^[0-9]{6,10}$/.test(value);
-                        if (!isValid) this.showError('rollNumber', 'Enter a valid roll number (6-10 digits)');
-                        break;
-                    
-                    case 'email':
-                        isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-                        if (!isValid) this.showError('email', 'Enter a valid email address');
-                        break;
-                    
-                    case 'phone':
-                        isValid = /^[0-9]{10}$/.test(value);
-                        if (!isValid) this.showError('phone', 'Enter a valid 10-digit phone number');
-                        break;
-                    
-                    case 'gender':
-                    case 'year':
-                    case 'branch':
-                    case 'hostel':
-                        isValid = value !== '';
-                        if (!isValid) this.showError(fieldId, 'This field is required');
-                        break;
-                }
-
-                return isValid;
-            }
-
-            showError(fieldId, message) {
-                const errorElement = document.getElementById(fieldId + 'Error');
-                const inputElement = document.getElementById(fieldId);
-                
-                if (errorElement) {
-                    errorElement.textContent = message;
-                    errorElement.classList.add('show');
-                }
-                if (inputElement) {
-                    inputElement.style.borderColor = '#e74c3c';
-                    inputElement.style.background = '#fff5f5';
-                }
-            }
-
-            clearError(fieldId) {
-                const errorElement = document.getElementById(fieldId + 'Error');
-                const inputElement = document.getElementById(fieldId);
-                
-                if (errorElement) {
-                    errorElement.classList.remove('show');
-                }
-                if (inputElement) {
-                    inputElement.style.borderColor = '#e1e8ed';
-                    inputElement.style.background = '#fafafa';
-                }
-            }
-
-            validateForm() {
-                const fields = ['name', 'rollNumber', 'email', 'phone', 'gender', 'year', 'branch', 'hostel'];
-                let isValid = true;
-
-                fields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (!this.validateField(field)) {
-                        isValid = false;
-                    }
+                    input.addEventListener('blur', () => {
+                        input.parentElement.parentElement.style.transform = 'translateY(0)';
+                    });
                 });
+            }
 
-                return isValid;
+            switchTab(clickedTab) {
+                this.tabs.forEach(tab => tab.classList.remove('active'));
+                clickedTab.classList.add('active');
+                this.currentUserType = clickedTab.dataset.tab;
+                
+                // Update placeholder based on user type
+                if (this.currentUserType === 'admin') {
+                    this.emailInput.placeholder = 'Enter admin email';
+                    document.querySelector('.login-header h3').textContent = 'Admin Portal';
+                    document.querySelector('.login-header p').textContent = 'Access administrative functions';
+                } else {
+                    this.emailInput.placeholder = 'Enter your email or roll number';
+                    document.querySelector('.login-header h3').textContent = 'Welcome Back';
+                    document.querySelector('.login-header p').textContent = 'Sign in to continue your hostel application';
+                }
+                
+                this.form.reset();
+                this.clearAllErrors();
+            }
+
+            validateEmail() {
+                const email = this.emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const rollNumberRegex = /^[0-9]{6,10}$/;
+                
+                if (!email) {
+                    this.showError('email', 'This field is required');
+                    return false;
+                }
+                
+                // For students, allow both email and roll number
+                if (this.currentUserType === 'student') {
+                    if (!emailRegex.test(email) && !rollNumberRegex.test(email)) {
+                        this.showError('email', 'Please enter a valid email or roll number');
+                        return false;
+                    }
+                } else {
+                    // For admin, only email
+                    if (!emailRegex.test(email)) {
+                        this.showError('email', 'Please enter a valid email address');
+                        return false;
+                    }
+                }
+                
+                return true;
+            }
+
+            validatePassword() {
+                const password = this.passwordInput.value;
+                
+                if (!password) {
+                    this.showError('password', 'Password is required');
+                    return false;
+                }
+                
+                if (password.length < 6) {
+                    this.showError('password', 'Password must be at least 6 characters long');
+                    return false;
+                }
+                
+                return true;
+            }
+
+            showError(field, message) {
+                const errorElement = document.getElementById(field + 'Error');
+                const inputElement = document.getElementById(field);
+                
+                errorElement.textContent = message;
+                errorElement.classList.add('show');
+                inputElement.style.borderColor = '#e74c3c';
+                inputElement.style.background = '#fff5f5';
+            }
+
+            hideError(field) {
+                const errorElement = document.getElementById(field + 'Error');
+                const inputElement = document.getElementById(field);
+                
+                errorElement.classList.remove('show');
+                inputElement.style.borderColor = '#e1e8ed';
+                inputElement.style.background = '#fafafa';
+            }
+
+            clearError(field) {
+                this.hideError(field);
+            }
+
+            clearAllErrors() {
+                this.hideError('email');
+                this.hideError('password');
+            }
+
+            setLoading(isLoading) {
+                if (isLoading) {
+                    this.loginBtn.classList.add('loading');
+                    this.btnText.style.opacity = '0';
+                    this.loadingSpinner.style.display = 'block';
+                    this.loginBtn.disabled = true;
+                } else {
+                    this.loginBtn.classList.remove('loading');
+                    this.btnText.style.opacity = '1';
+                    this.loadingSpinner.style.display = 'none';
+                    this.loginBtn.disabled = false;
+                }
+            }
+
+            showSuccess() {
+                this.successMessage.classList.add('show');
+                setTimeout(() => {
+                    this.successMessage.classList.remove('show');
+                }, 3000);
             }
 
             async handleSubmit(e) {
                 e.preventDefault();
-
-                if (!this.validateForm()) {
-                    alert('Please fill all required fields correctly');
+                
+                // Clear previous errors
+                this.clearAllErrors();
+                
+                // Validate all fields
+                const isEmailValid = this.validateEmail();
+                const isPasswordValid = this.validatePassword();
+                
+                if (!isEmailValid || !isPasswordValid) {
                     return;
                 }
 
-                // Show loading
-                this.submitBtn.disabled = true;
-                this.spinner.classList.add('show');
+                // Start loading
+                this.setLoading(true);
 
                 try {
-                    const formData = new FormData(this.form);
-                    const gender = formData.get('gender');
-                    const hostelIndex = this.hostelSelect.value;
-                    const selectedHostel = hostels[gender][hostelIndex];
-                    
-                    const applicationData = {
-                        name: formData.get('name'),
-                        rollNumber: formData.get('rollNumber'),
-                        email: formData.get('email'),
-                        phone: formData.get('phone'),
-                        gender: gender,
-                        year: formData.get('year'),
-                        branch: formData.get('branch'),
-                        hostelIndex: hostelIndex,
-                        hostel: selectedHostel.name
-                    };
-
-                    // Submit to backend
-                    const response = await fetch(`${API_URL}/apply`, {
+                    // Call backend API
+                    const response = await fetch(`${API_URL}/login`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify(applicationData)
+                        body: JSON.stringify({
+                            email: this.emailInput.value.trim(),
+                            password: this.passwordInput.value,
+                            userType: this.currentUserType
+                        })
                     });
 
-                    const result = await response.json();
+                    const data = await response.json();
 
-                    if (result.success) {
-                        // Store complete application data for the details page
-                        submittedApplicationData = {
-                            ...applicationData,
-                            applicationId: result.applicationId,
+                    if (data.success) {
+                        // Store user info
+                        sessionStorage.setItem('userType', data.role);
+                        sessionStorage.setItem('userEmail', this.emailInput.value.trim());
+                        
+                        // Show success message
+                        this.showSuccess();
+                        
+                        // Log the login data
+                        console.log('Login successful!', {
+                            userType: data.role,
+                            email: this.emailInput.value,
                             timestamp: new Date().toISOString()
-                        };
+                        });
                         
-                        // Store in sessionStorage for persistence
-                        sessionStorage.setItem('applicationData', JSON.stringify(submittedApplicationData));
-                        
-                        // Show application ID
-                        document.getElementById('applicationId').textContent = result.applicationId;
-                        
-                        // Show success modal - STAYS OPEN until user clicks button
-                        this.modal.classList.add('show');
-                        
-                        // Refresh hostels to update availability
-                        await this.fetchHostels();
-                        
-                        console.log('Application submitted:', result);
+                        // Redirect to appropriate dashboard
+                        setTimeout(() => {
+                            if (data.role === 'student') {
+                                window.location.href = 'main.html';
+                            } else {
+                                window.location.href = 'admin-dashboard.html';
+                            }
+                        }, 1500);
                     } else {
-                        alert(result.message || 'Application submission failed. Please try again.');
+                        this.showError('password', data.message || 'Invalid credentials. Please try again.');
                     }
                     
                 } catch (error) {
-                    console.error('Submission failed:', error);
-                    alert('Server error. Please make sure the backend is running on port 3000.');
+                    console.error('Login failed:', error);
+                    this.showError('password', 'Server error. Please make sure the backend is running on port 3000.');
                 } finally {
-                    this.submitBtn.disabled = false;
-                    this.spinner.classList.remove('show');
+                    this.setLoading(false);
                 }
             }
-        }
 
-        // Initialize the system
-        document.addEventListener('DOMContentLoaded', () => {
-            new HostelAllotmentSystem();
-        });
-
-        // View Application Details - redirects to details page
-        function viewApplication() {
-            window.location.href = 'application-details.html';
-        }
-
-        // Logout function
-        function logout() {
-            if (confirm('Are you sure you want to logout?')) {
-                console.log('User logged out');
-                sessionStorage.clear();
-                localStorage.removeItem('userSession');
-                window.location.href = 'login.html';
+            redirectToRegistration() {
+                console.log('Redirecting to registration page...');
+                alert('Registration page would open here. For now, this is a demo.');
             }
         }
+
+        // Initialize the login system when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new LoginSystem();
+        });
     </script>
 </body>
 </html>
